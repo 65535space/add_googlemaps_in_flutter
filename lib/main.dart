@@ -9,10 +9,10 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  MyAppState createState() => MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
-class MyAppState extends State<MyApp> {
+class _MyAppState extends State<MyApp> {
   final Map<String, Marker> _markers = {};
   // GoogleMapController オブジェクトを取得するためのコールバック関数
   Future<void> _onMapCreated(GoogleMapController controller) async {
@@ -37,6 +37,10 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: Colors.green[700],
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Maps Sample App'),

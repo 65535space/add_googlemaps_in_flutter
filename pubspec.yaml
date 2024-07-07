@@ -9,10 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  json_annotation: ^4.9.0
-  google_maps_flutter: ^2.7.0
   http: ^1.2.1
+  json_annotation: ^4.9.0
   json_serializable: ^6.8.0
+  google_maps_flutter: ^2.7.0
 
 dev_dependencies:
   flutter_test:

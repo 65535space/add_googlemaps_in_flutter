@@ -1,7 +1,9 @@
 import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:http/http.dart' as http;
 import 'package:json_annotation/json_annotation.dart';
-import 'package:flutter/services.dart' show rootBundle;
 
 part 'locations.g.dart';
 
@@ -87,16 +89,20 @@ Future<Locations> getGoogleOffices() async {
     // http.get() は、指定されたURLからデータを取得する
     final response = await http.get(Uri.parse(googleLocationsURL));
     if (response.statusCode == 200) {
-      return Locations.fromJson(json.decode(response.body));
+      return Locations.fromJson(
+        json.decode(response.body) as Map<String, dynamic>,
+      );
     }
   } catch (e) {
-    print(e);
+    if (kDebugMode) {
+      print(e);
+    }
   }
 
   // Fallback for when the above HTTP request fails
   return Locations.fromJson(
     json.decode(
       await rootBundle.loadString('assets/locations.json'),
-    ),
+    ) as Map<String, dynamic>,
   );
 }

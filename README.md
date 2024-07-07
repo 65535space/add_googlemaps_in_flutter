@@ -60,3 +60,11 @@ google_maps_flutterパッケージのウィジェット
 地図にポイントをつけるためのもの。
 Q. ポイントをつけるだけならpositionだけで特定できない?
 A. 付加情報を設定(markerIdやinfoWindow)をつけることで同じ位置に複数のマーカーがある場合でも区別でき、マーカーを動的に操作できる。また、詳細情報の表示などができる。
+
+# kDebugMode とは
+
+# json.decode()に as Map<String,dynamic> をつける理由
+
+
+# coodelabは英語版を見るべき
+右上の設定で日本語→Englishにしないと、最新バージョンが見られなくて詰む場合がある
