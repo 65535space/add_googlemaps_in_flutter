@@ -20,3 +20,43 @@ https://developers.google.com/maps/documentation/android-sdk/get-api-key?hl=ja
 ↑
 この位置をちゃんと確認すること!
 
+# 用語集
+JSON：データを構造化して保存・転送するための軽量なデータ交換フォーマット
+
+HTTP リクエスト：クライアント（例：ウェブブラウザやアプリケーション）がサーバーに対して特定の操作を要求するためのメッセージ
+
+パース：プログラミングやデータ処理の文脈で、特定の形式のデータを読み取り、そのデータを構造化された形式に変換するプロセスを指します。パースは、テキストデータやファイルなどを解析し、プログラムで利用しやすい形に変換するために行われます。
+
+# Flutterの機能
+HTTPパッケージ：
+1. HTTPメソッドのサポート：GET、POST、PUT、DELETEなどのHTTPメソッドを使用してリクエストを送信できます。
+2. 非同期処理：DartのFutureやasync/awaitを使用して非同期リクエストを処理します。
+3. ヘッダーとボディの設定：リクエストにカスタムヘッダーやボディデータを含めることができます。
+4. JSON処理：サーバーからのレスポンスをJSON形式で受け取り、解析するためのサポートがあります。
+
+json_serializableパッケージ：JSONデータのシリアライズとデシリアライズを自動化するためのツール。手動でJSONのマッピングを行う煩雑さを軽減し、モデルクラスの作成とJSONとの変換を簡単にします。
+シリアライズ：　オブジェクト→JSON //送れるようにする
+デシリアライズ：　JSON→オブジェクト//受け取れるようにする
+
+import文について
+1.　as修飾子：as修飾子は、インポートしたモジュールにエイリアス（別名）を付けるために使用されます
+
+2.　show修飾子：show修飾子は、インポートしたモジュールから特定のメンバーだけをインポートするために使用されます。
+
+3.　partキーワード：ライブラリの一部として別のファイルに分割するために使用される
+
+# 参考サイト
+https://codelabs.developers.google.com/codelabs/google-maps-in-flutter?hl=ja#4
+
+# json_serializableの使い方
+json_serializable(dependencies配下)を追加する。json_annotationとbuild_runnerの2つの追加パッケージをpubspec.yamlに追加(dev_dependencies配下)
+
+クラスに'@JsonSerializable' アノテーションを追加する。
+ flutter pub run build_runner build
+コマンドを実行すると、example.g.dart ファイルが生成され、fromJson メソッドが定義される。
+
+# Markerウィジェット
+google_maps_flutterパッケージのウィジェット
+地図にポイントをつけるためのもの。
+Q. ポイントをつけるだけならpositionだけで特定できない?
+A. 付加情報を設定(markerIdやinfoWindow)をつけることで同じ位置に複数のマーカーがある場合でも区別でき、マーカーを動的に操作できる。また、詳細情報の表示などができる。

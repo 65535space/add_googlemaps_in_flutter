@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'src/locations.dart' as locations;
 
 void main() => runApp(const MyApp());
 
@@ -11,13 +13,25 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  late GoogleMapController mapController;
-  // LatLng はlatitude(緯度)とlongitude(経度)を表すクラス
-  final LatLng _center = const LatLng(45.521563, -122.677433);
-
+  final Map<String, Marker> _markers = {};
   // GoogleMapController オブジェクトを取得するためのコールバック関数
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
+  Future<void> _onMapCreated(GoogleMapController controller) async {
+    final googleOffices = await locations.getGoogleOffices();
+    setState(() {
+      _markers.clear();
+      for (final office in googleOffices.offices) {
+        final marker = Marker(
+          markerId: MarkerId(office.name),
+          // latitude と longitude で位置を指定
+          position: LatLng(office.lat, office.lng),
+          infoWindow: InfoWindow(
+            title: office.name,
+            snippet: office.address,
+          ),
+        );
+        _markers[office.name] = marker;
+      }
+    });
   }
 
   @override
@@ -33,10 +47,11 @@ class MyAppState extends State<MyApp> {
           // プログラムからマップを操作するためのコントローラ
           onMapCreated: _onMapCreated,
           // 初期表示位置を指定
-          initialCameraPosition: CameraPosition(
-            target: _center,
-            zoom: 11.0,
+          initialCameraPosition: const CameraPosition(
+            target: LatLng(0, 0),
+            zoom: 2,
           ),
+          markers: _markers.values.toSet(),
         ),
       ),
     );
