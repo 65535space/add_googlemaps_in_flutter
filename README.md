@@ -62,9 +62,18 @@ Q. ポイントをつけるだけならpositionだけで特定できない?
 A. 付加情報を設定(markerIdやinfoWindow)をつけることで同じ位置に複数のマーカーがある場合でも区別でき、マーカーを動的に操作できる。また、詳細情報の表示などができる。
 
 # kDebugMode とは
+kDebugModeは、アプリケーションがデバッグモードで実行されているかどうかをチェックするための定数
+flutter runコマンドはデフォルトでデバッグモードである
+flutter build apk --release　リリースモードなのでkDebugModeが   Falseとなる
+
 
 # json.decode()に as Map<String,dynamic> をつける理由
+型安全性を向上させ、デコードされたデータに対して適切な型の操作を行うことができるようにするためです(可読性が上がる)
 
 
 # coodelabは英語版を見るべき
 右上の設定で日本語→Englishにしないと、最新バージョンが見られなくて詰む場合がある
+
+# mapを表示する際のエラー
+# E/FrameEvents(23871): updateAcquireFence: Did not find frame.
+気にしないでいい
