@@ -18,7 +18,7 @@ Map<String, dynamic> _$LatLngToJson(LatLng instance) => <String, dynamic>{
 
 Region _$RegionFromJson(Map<String, dynamic> json) => Region(
       coords: LatLng.fromJson(json['coords'] as Map<String, dynamic>),
-      id: (json['id'] as num).toInt(),
+      id: json['id'] as String,
       name: json['name'] as String,
       zoom: (json['zoom'] as num).toDouble(),
     );

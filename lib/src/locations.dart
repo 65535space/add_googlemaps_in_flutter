@@ -34,7 +34,7 @@ class Region {
   Map<String, dynamic> toJson() => _$RegionToJson(this);
 
   final LatLng coords;
-  final int id;
+  final String id;
   final String name;
   final double zoom;
 }
