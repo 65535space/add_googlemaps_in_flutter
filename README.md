@@ -77,3 +77,7 @@ flutter build apk --release　リリースモードなのでkDebugModeが   Fals
 # mapを表示する際のエラー
 # E/FrameEvents(23871): updateAcquireFence: Did not find frame.
 気にしないでいい
+
+# Google Maps Platform 指標の見方
+トラフィックレスポンスコードの見方
+https://developers.google.com/maps/reporting/gmp-reporting?hl=ja#console-billing
