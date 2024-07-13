@@ -6,9 +6,9 @@ GooglemapsをFlutterに追加する方法を下記に残す
 2. 次のコマンドを実行する
 flutter pub add google_maps_flutter
 
-3. アンドロイドの最小バージョンを20以上にする
+3. アンドロイドの最小バージョンを21以上にする
 android/app/build.gradle
-minsdkVersion 20
+minsdkVersion 21
 
 4. AndroidアプリにAPIキーを追加する
 4.1　APIキーを作成(フィンガープリントについても下記のURLに記載)
@@ -19,6 +19,21 @@ https://developers.google.com/maps/documentation/android-sdk/get-api-key?hl=ja
         android:value="YOUR-KEY-HERE"/> //←自分のAPIキーを設定する
 ↑
 この位置をちゃんと確認すること!
+# !!!注意!!!
+APIKEYはgit追跡したらダメなので、xmlファイルに直接書かないほうがいい。
+よって、#APIKEYを隠す方法を参照すること
+
+6. AndroidManifest.xmlのmanifestタグ配下に以下を追加
+```android\app\src\main\AndroidManifest.xml
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+```
+.INTERNET
+アプリケーションがインターネットにアクセスするために必要である。具体的には、Web APIの呼び出し、データの送受信、外部サーバーとの通信など、ネットワークを介して行われる操作に必要である。
+
+.ACCESS_FINE_LOCATION
+この権限は、アプリケーションがデバイスの正確な位置情報（GPSやネットワークプロバイダを使用した位置情報）にアクセスするために必要である。この権限をリクエストすることで、アプリはユーザーの現在位置を取得し、位置ベースのサービスを提供することができる。
+
 
 # 用語集
 JSON：データを構造化して保存・転送するための軽量なデータ交換フォーマット
@@ -81,3 +96,37 @@ flutter build apk --release　リリースモードなのでkDebugModeが   Fals
 # Google Maps Platform 指標の見方
 トラフィックレスポンスコードの見方
 https://developers.google.com/maps/reporting/gmp-reporting?hl=ja#console-billing
+
+# APIKEYを隠す方法(android)
+1. androidディレクトリにsecret.propertiesを作る。
+```.properties
+googleMap.apiKey=YOUR_API_KEY
+```
+
+2. android/app/build.gradle 内に次の関数を追加する。
+
+```build.gradle
+def secretProperties = new Properties()
+def secretPropertiesFile = rootProject.file('secret.properties')
+if (secretPropertiesFile.exists()) {
+    secretPropertiesFile.withReader('UTF-8') { reader ->
+        secretProperties.load(reader)
+    }
+}
+```
+
+3. android内のdefaultConfig に次の変数を追加する
+```android/app/build.gradle
+// 環境変数を呼び出すコード
+manifestPlaceholders = [
+        googleMapApiKey: secretProperties.getProperty('googleMap.apiKey'),
+]
+```
+
+4. AndroidManifest.xml
+application配下に次のコードを置きます。(android:labelとandroid:nameの下,android:iconは消してもいい)
+```
+<meta-data android:name="com.google.android.geo.API_KEY" android:value="${googleMapApiKey}"/>
+```
+
+5. プロジェクトディレクトリにgitignoreにsecret.propertiesを追加する。

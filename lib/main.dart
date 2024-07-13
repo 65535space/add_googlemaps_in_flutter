@@ -17,13 +17,18 @@ class _MyAppState extends State<MyApp> {
   // GoogleMapController オブジェクトを取得するためのコールバック関数
   Future<void> _onMapCreated(GoogleMapController controller) async {
     final googleOffices = await locations.getGoogleOffices();
+
+    // GoogleMapのマーカーを更新するための処理
     setState(() {
+      // マーカーをクリア
       _markers.clear();
+      // GoogleMapのマーカーを設定
       for (final office in googleOffices.offices) {
         final marker = Marker(
           markerId: MarkerId(office.name),
           // latitude と longitude で位置を指定
           position: LatLng(office.lat, office.lng),
+          // タップしたときに表示される情報ウィンドウ
           infoWindow: InfoWindow(
             title: office.name,
             snippet: office.address,

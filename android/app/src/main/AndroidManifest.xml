@@ -8,8 +8,8 @@
         android:label="add_googlemaps_into_flutter"
         android:icon="@mipmap/ic_launcher">
 
-    <!-- TODO: Add your Google Maps API key here -->
-    <meta-data android:name="com.google.android.geo.API_KEY" android:value="${googleMapApiKey}"/>
+        <!-- TODO: Add your Google Maps API key here -->
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="${googleMapApiKey}"/>
 
         <activity
             android:name=".MainActivity"
