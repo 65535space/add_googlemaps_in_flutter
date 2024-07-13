@@ -124,7 +124,7 @@ manifestPlaceholders = [
 ```
 
 4. AndroidManifest.xml
-application配下に次のコードを置きます。(android:labelとandroid:nameの下,android:iconは消してもいい)
+application配下に次のコードを置きます。(android:labelとandroid:nameの下,android:nameは消してもいい)
 ```
 <meta-data android:name="com.google.android.geo.API_KEY" android:value="${googleMapApiKey}"/>
 ```
