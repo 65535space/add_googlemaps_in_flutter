@@ -16,7 +16,7 @@ https://developers.google.com/maps/documentation/android-sdk/get-api-key?hl=ja
 
 5. android/app/src/main/AndroidManifest.xmlのmeta-dataに次の2つを指定する
 <meta-data android:name="com.google.android.geo.API_KEY"
-        android:value="YOUR-KEY-HERE"/> //←自分のAPIキーを設定する
+        android:value="YOUR-KEY-HERE"/> //←自分のAPIキーを設定する<br>
 ↑
 この位置をちゃんと確認すること!
 # !!!注意!!!
@@ -49,9 +49,9 @@ HTTPパッケージ：
 3. ヘッダーとボディの設定：リクエストにカスタムヘッダーやボディデータを含めることができます。
 4. JSON処理：サーバーからのレスポンスをJSON形式で受け取り、解析するためのサポートがあります。
 
-json_serializableパッケージ：JSONデータのシリアライズとデシリアライズを自動化するためのツール。手動でJSONのマッピングを行う煩雑さを軽減し、モデルクラスの作成とJSONとの変換を簡単にします。
-シリアライズ：　オブジェクト→JSON //送れるようにする
-デシリアライズ：　JSON→オブジェクト//受け取れるようにする
+json_serializableパッケージ：JSONデータのシリアライズとデシリアライズを自動化するためのツール。手動でJSONのマッピングを行う煩雑さを軽減し、モデルクラスの作成とJSONとの変換を簡単にします。<br>
+シリアライズ：　オブジェクト→JSON //送れるようにする<br>
+デシリアライズ：　JSON→オブジェクト//受け取れるようにする<br>
 
 import文について
 1.　as修飾子：as修飾子は、インポートしたモジュールにエイリアス（別名）を付けるために使用されます
@@ -72,13 +72,13 @@ json_serializable(dependencies配下)を追加する。json_annotationとbuild_r
 
 # Markerウィジェット
 google_maps_flutterパッケージのウィジェット
-地図にポイントをつけるためのもの。
-Q. ポイントをつけるだけならpositionだけで特定できない?
+地図にポイントをつけるためのもの。<br>
+Q. ポイントをつけるだけならpositionだけで特定できない?<br>
 A. 付加情報を設定(markerIdやinfoWindow)をつけることで同じ位置に複数のマーカーがある場合でも区別でき、マーカーを動的に操作できる。また、詳細情報の表示などができる。
 
 # kDebugMode とは
-kDebugModeは、アプリケーションがデバッグモードで実行されているかどうかをチェックするための定数
-flutter runコマンドはデフォルトでデバッグモードである
+kDebugModeは、アプリケーションがデバッグモードで実行されているかどうかをチェックするための定数<br>
+flutter runコマンドはデフォルトでデバッグモードである<br>
 flutter build apk --release　リリースモードなのでkDebugModeが   Falseとなる
 
 
@@ -90,7 +90,7 @@ flutter build apk --release　リリースモードなのでkDebugModeが   Fals
 右上の設定で日本語→Englishにしないと、最新バージョンが見られなくて詰む場合がある
 
 # mapを表示する際のエラー
-# E/FrameEvents(23871): updateAcquireFence: Did not find frame.
+E/FrameEvents(23871): updateAcquireFence: Did not find frame.<br>
 気にしないでいい
 
 # Google Maps Platform 指標の見方
