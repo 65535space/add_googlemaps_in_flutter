@@ -8,13 +8,15 @@ flutter pub add google_maps_flutter
 
 3. アンドロイドの最小バージョンを21以上にする
 android/app/build.gradle
-minsdkVersion 21
+```gradle
+minSdkVersion 21
+```
 
-4. AndroidアプリにAPIキーを追加する
+5. AndroidアプリにAPIキーを追加する
 4.1　APIキーを作成(フィンガープリントについても下記のURLに記載)
 https://developers.google.com/maps/documentation/android-sdk/get-api-key?hl=ja
 
-5. android/app/src/main/AndroidManifest.xmlのmeta-dataに次の2つを指定する
+6. android/app/src/main/AndroidManifest.xmlのmeta-dataに次の2つを指定する
 <meta-data android:name="com.google.android.geo.API_KEY"
         android:value="YOUR-KEY-HERE"/> //←自分のAPIキーを設定する<br>
 ↑
