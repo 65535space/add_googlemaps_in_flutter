@@ -12,7 +12,7 @@ android/app/build.gradle
 minSdkVersion 21
 ```
 
-5. AndroidアプリにAPIキーを追加する
+4. AndroidアプリにAPIキーを追加する
 4.1　APIキーを作成(フィンガープリントについても下記のURLに記載)
 https://developers.google.com/maps/documentation/android-sdk/get-api-key?hl=ja
 
