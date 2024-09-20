@@ -16,6 +16,11 @@ minSdkVersion 21
 4.1　APIキーを作成(フィンガープリントについても下記のURLに記載)
 https://developers.google.com/maps/documentation/android-sdk/get-api-key?hl=ja
 
+SHA-1の発給方法
+Android Studioでプロジェクト内のAndroidディレクトリを開く
+gradleのなんでも実行から次のコマンドを実行する
+
+
 6. android/app/src/main/AndroidManifest.xmlのmeta-dataに次の2つを指定する
 <meta-data android:name="com.google.android.geo.API_KEY"
         android:value="YOUR-KEY-HERE"/> //←自分のAPIキーを設定する<br>
