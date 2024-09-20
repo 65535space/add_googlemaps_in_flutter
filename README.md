@@ -19,7 +19,9 @@ https://developers.google.com/maps/documentation/android-sdk/get-api-key?hl=ja
 SHA-1の発給方法
 Android Studioでプロジェクト内のAndroidディレクトリを開く
 gradleのなんでも実行から次のコマンドを実行する
-
+```
+gradle signingReport
+```
 
 6. android/app/src/main/AndroidManifest.xmlのmeta-dataに次の2つを指定する
 <meta-data android:name="com.google.android.geo.API_KEY"
