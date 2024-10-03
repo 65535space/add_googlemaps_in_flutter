@@ -139,3 +139,12 @@ application配下に次のコードを置きます。(android:labelとandroid:na
 ```
 
 5. プロジェクトディレクトリにgitignoreにsecret.propertiesを追加する。
+
+Q.次のエラーを解決する方法
+e: C:/Users/Yourname/.gradle/caches/transforms-4/3d2bf78008da3bd2c559ae6e4a5dd67e/transformed/jetified-kotlin-stdlib-common-1.9.0.jar!/META-INF/kotlin-stdlib-common.kotlin_module: 
+Module was compiled with an incompatible version of Kotlin. The binary version of its metadata is 1.9.0, expected version is 1.7.1.
+Execution failed for task ':app:compileDebugKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+> Compilation error. See log for more details
+
+A.
